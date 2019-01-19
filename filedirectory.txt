@@ -1,0 +1,17 @@
+*RubatagaBotJS -- contains Node.JS bot (auto comment/like)
+
+*RubatagaBotPY -- contains Python (DM)
+
+*.gitignore -- tells what files should not be uploaded when updating the repo
+
+*filedirectory.txt -- this file
+
+*package.json -- holds information for the JS bot
+
+*Procfile -- tells Heroku what commands to run on startup
+
+*README.md -- bruh
+
+*requirements.txt -- gives the dependencies for the Python bot
+
+*run.bat -- autoruns the command for the JS bot

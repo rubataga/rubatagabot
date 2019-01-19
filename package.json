@@ -1,0 +1,13 @@
+{
+  "name": "rubatagabot",
+  "version": "1.0.0",
+  "main": "index.js",
+  "dependencies": {
+    "firebase-admin": "^6.1.0",
+    "puppeteer": "^1.9.0",
+    "shuffle-array": "^1.0.1"
+  },
+  "scripts": {
+    "start": "node RubatagaBotJS/index.js"
+  }
+}

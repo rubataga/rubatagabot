@@ -1,0 +1,54 @@
+{
+  "base_url": "https://www.instagram.com",
+  "hashTags": ["josephmccarthysucc","rubataga","rubatagabot"],
+  "settings": {
+    "run_every_x_hours": 0.08333333,
+    "like_ratio": 0.75,
+    "comments_per_post": 2,
+    "unfollow_after_days": 2,
+    "headless": "false",
+    "debug_mode": "false",
+    "security_code": "205817",
+    "window_size": {
+      "width": 500,
+      "height": 500
+    }
+  },
+  "comments": [
+    "Obligatory comment for exposure 👏😩 -- rubatagabot🤖",
+    "ok so bASically comment for exposure -- rubatagabot🤖",
+    "bro... bro... bro........ brooo... -- rubatagabot🤖",
+    "bro... this lad is so desperate that he got a bot to comment on his own posts for more exposure what a stupid freakin idiot:( -- rubataga🤖",
+    "##dankmemes #papafranku #cancer #dank #dankmemezLO :(99))))🤬 -- rubatagabot🤖",
+    "if you are reading this  -- rubatagabot🤖"
+
+  ],
+  "selectors": {
+    "home_to_login_button": ".izU2O a",
+    "username_field": "input[type=\"text\"]",
+    "password_field": "input[type=\"password\"]",
+    "login_button": "button[type=\"submit\"]",
+    "post_heart_grey": "span.glyphsSpriteHeart__outline__24__grey_9",
+    "post_heart_red": "span.glyphsSpriteHeart__filled__24__red_5 u-__7",
+    "post_heart_red_2": "body > div:nth-child(18) > div > div.zZYga > div > article > div.eo2As > section.ltpMr.Slqrh > span.fr66n > button > span",
+    "post_username": "div.e1e1d > h2.BrX75 > a",
+    "post_follow_link": ".bY2yH > button",
+    "post_like_button": "span.fr66n > button",
+    "post_comment_button": "span._15y0l > button",
+    "post_follow_button": "span.oW_lN._1OSdk > button",
+    "post_close_button": "button.ckWGn",
+    "user_unfollow_button": "span.vBF20 > button._5f5mN",
+    "user_unfollow_confirm_button": "div.mt3GC > button.aOOlW.-Cab_",
+    "not_not_app" : "a._3m3RQ.",
+    "not_now_button": ".HoLwm",
+    "security_button_fail": "#react-root > section > div > div > div.GA2q- > form > span > button",
+    "security_button": "button._5f5mN",
+    "type_security_code_fail": "#security_code",
+    "type_security_code": "input[type=\"tel\"]",
+    "enter_security_code_fail": "#react-root > section > div > div > div.GA2q- > form > span > button",
+    "enter_security_code": "span.idhGk > button",
+    "hashtag_base": ".EZdmt",
+    "profile_base": "div._2z6nI > article > div:nth-child(1) > div",
+    "profile_base_class_bruh": "#react-root > section > main > div > div._2z6nI > article > div:nth-child(1) > div"
+  }
+}
