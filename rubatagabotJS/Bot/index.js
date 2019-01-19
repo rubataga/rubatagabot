@@ -8,6 +8,7 @@ class InstagramBot {
     }
 
     async initPuppeter() {
+        console.log();
         const puppeteer = require('puppeteer');
         //check if WINDOW variable is true or false
         const WINDOWLESS = process.env.WINDOW ? process.env.WINDOW : this.config.settings.headless;
@@ -28,6 +29,7 @@ class InstagramBot {
         const INSTAPASSWORD = process.env.INSTAPASSWORD? process.env.INSTAPASSWORD : require('./config/instacredentials.json').password;
         console.log("USERNAME: " + INSTAUSERNAME);
         console.log("PASSWORD: " + INSTAPASSWORD);
+        console.log();
         await this.page.goto(this.config.base_url, {timeout: 60000});
         await this.page.waitFor(2500);
         await this.page.click(this.config.selectors.home_to_login_button);
@@ -119,7 +121,8 @@ class InstagramBot {
     
     async visitPage(pagename) {
         await this.page.goto(`https://www.instagram.com/` + pagename + `/`);
-        console.log('VISITING ' + pagename);
+        console.log(`VISITING [${pagename}]`);
+        await this.page.waitForNavigation;
         //await this._goSickoMode(this.config.selectors.profile_base_class, this.page)
     }
 
@@ -169,7 +172,6 @@ class InstagramBot {
                 
                 await page.waitForSelector(`${baseClass} > div:nth-child(${r}) > div:nth-child(${c}) > a`, {timeout : 0});
                 //await page.click(`#react-root > section > main > div > div._2z6nI > article > div:nth-child(1) > div > div:nth-child(${r}) > div:nth-child(${c}) > a`)
-                console.log("TEST: POST FOUND");
                 await page.click(`${baseClass} > div:nth-child(${r}) > div:nth-child(${c}) > a`)    
                     .catch((e) => {
                         console.log(e.message);
@@ -192,26 +194,26 @@ class InstagramBot {
                 }, this.config.selectors.post_username);
                 
                 console.log();
-                console.log(`INTERACTING WITH ${username}'s POST: ${postID}`);
+                console.log(`INTERACTING WITH ${username}'s POST: {${postID}}`);
                 
                 //get the current post like status by checking if the selector exist
                 
                 let liked = null;
                 if (page.$(this.config.selectors.post_heart_grey).length){
                     liked = false;
-                    console.log('POST {' + postID + '} HAS NOT BEEN LIKED YET.');
+                    // console.log(`POST {${postID}} HAS NOT BEEN LIKED YET.`);
                 } else {
                     liked = true;
-                    console.log('POST {' + postID + '} HAS ALREADY BEEN LIKED.');
+                   // console.log(`POST {${postID}} HAS ALREADY BEEN LIKED.`);
                 }
 
                 //like the post if not already liked
                 if (liked) {
-                    console.log('NOT LIKING POST {' + postID + '}.' );
+                    console.log(`{${postID}} :: ALREADY LIKED`);
                 } else {
-                    console.log('LIKING POST {' + postID + '}.');
                     await page.waitForSelector(this.config.selectors.post_like_button, {timeout : 0});
                     await page.click(this.config.selectors.post_like_button);//click the like button
+                    console.log(`{${postID}} :: LIKED`);
                     await page.waitFor(10000 + Math.floor(Math.random() * 5000));// wait for random amount of time.
                 };
                 
@@ -230,9 +232,11 @@ class InstagramBot {
                         await page.keyboard.press('Enter');
                         await page.waitFor(2500);
                     }
-                    console.log('COMMENTED ON POST {' + postID + '} ' + this.config.settings.comments_per_post + ' times' );
+                    console.log(`{${postID}} :: COMMENTED ${this.config.settings.comments_per_post} TIMES`);
                     await this.firebase_db.addCommented(postID);
-                    console.log('ADDED {' + postID + '} TO THE DATABASE' )
+                    console.log(`{${postID}} :: ADDED TO DATABASE`)
+                } else {
+                    console.log(`{${postID}} :: ALREADY COMMENTED`);
                 }
 
                 //Closing the current post modal
