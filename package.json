@@ -8,6 +8,6 @@
     "shuffle-array": "^1.0.1"
   },
   "scripts": {
-    "start": "node RubatagaBotJS/index.js"
+    "start": "node rubatagabotJS/index.js"
   }
 }
