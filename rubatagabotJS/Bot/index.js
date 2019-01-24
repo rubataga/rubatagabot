@@ -224,7 +224,13 @@ class InstagramBot {
                 if (!hasCommented) { 
                     let comments = shuffle(this.config.comments);
                     // loop through available commments
-                    for (let commentIndex = 0; commentIndex < this.config.settings.comments_per_post; commentIndex++) {
+                    await page.waitForSelector(this.config.selectors.post_like_button, {timeout : 0});
+                        await page.click(this.config.selectors.post_comment_button);//click the comment button
+                        await page.keyboard.type("#josephmccarthysucc", {delay: 40}); //type some stuff
+                        await page.waitFor(1000);
+                        await page.keyboard.press('Enter');
+                        await page.waitFor(2500);
+                    for (let commentIndex = 0; commentIndex < (this.config.settings.comments_per_post - 1); commentIndex++) {
                         await page.waitForSelector(this.config.selectors.post_like_button, {timeout : 0});
                         await page.click(this.config.selectors.post_comment_button);//click the comment button
                         await page.keyboard.type(comments[commentIndex], {delay: 40}); //type some stuff

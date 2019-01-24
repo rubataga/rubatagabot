@@ -4,7 +4,7 @@
   "settings": {
     "run_every_x_hours": 0.08333333,
     "like_ratio": 0.75,
-    "comments_per_post": 2,
+    "comments_per_post": 3,
     "unfollow_after_days": 2,
     "headless": "false",
     "debug_mode": "false",
@@ -15,12 +15,16 @@
     }
   },
   "comments": [
-    "Obligatory comment for exposure 👏😩 -- rubatagabot🤖",
-    "ok so bASically comment for exposure -- rubatagabot🤖",
-    "bro... bro... bro........ brooo... -- rubatagabot🤖",
-    "bro... this lad is so desperate that he got a bot to comment on his own posts for more exposure what a stupid freakin idiot:( -- rubataga🤖",
-    "##dankmemes #papafranku #cancer #dank #dankmemezLO :(99))))🤬 -- rubatagabot🤖",
-    "if you are reading this  -- rubatagabot🤖"
+    "Obligatory comment for exposure 👏😩",
+    "ok so bASically comment for exposure",
+    "bro... bro... bro........ brooo...",
+    "big cheese",
+    "##dankmemes #papafranku #cancer #dank #dankmemezLO :(99))))🤬 ",
+    "sc sc sc sc 😎",
+    "hey guys, rubatagabot here with a friendly reminder to NEVER EVER say the n word",
+    "bruh,,,,;{[0o98 bruh 🤪🚸",
+    "follow @rubataga nnnnn nyek nyuhk nyjek nyuijk",
+    "hydrogen helium lithium berilium "
 
   ],
   "selectors": {
