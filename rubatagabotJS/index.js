@@ -11,7 +11,7 @@ async function start() {
     await bot.initPuppeter().then(() => console.log("PUPPETEER INITIALIZED"));
 
     const DEBUGMODE = process.env.DEBUGMODE ? process.env.DEBUGMODE : config.settings.debug_mode;
-
+    const VISITINSTA = process.env.VISITINSTA? process.env.VISITINSTA : "rubataga.gif";
     var debugging = DEBUGMODE == "true";
     if(debugging){
         await bot.testChallenge().then(() => console.log("TESTING CHALLENGE"));
@@ -28,7 +28,7 @@ async function start() {
     const doneBrowsing = Date();
     console.log();
     console.log(`STARTED BROWSING - ${startBrowsing} / STOPPED BROWSING - ${doneBrowsing}`);
-    setInterval(profileLike, config.settings.run_every_x_hours * 3600000, "rubataga.gif", "profile_base");
+    setInterval(profileLike, config.settings.run_every_x_hours * 3600000, VISITINSTA, "profile_base");
 }
 
 //setInterval(profileLike, config.settings.run_every_x_hours * 600000, "rubataga.gif", "profile_base", bot);
