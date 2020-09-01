@@ -8,27 +8,29 @@ start().catch(e=>console.log(e.message));
 async function start() {
     const startBrowsing = Date();
     console.log(Date());
-    await bot.initPuppeter().then(() => console.log("PUPPETEER INITIALIZED"));
+    await bot.initPuppeteer().then(() => console.log("PUPPETEER INITIALIZED"));
 
-    const DEBUGMODE = process.env.DEBUGMODE ? process.env.DEBUGMODE : config.settings.debug_mode;
+    /*const DEBUGMODE = process.env.DEBUGMODE ? process.env.DEBUGMODE : config.settings.debug_mode;
     const VISITINSTA = process.env.VISITINSTA? process.env.VISITINSTA : "rubataga.gif";
     var debugging = DEBUGMODE == "true";
     if(debugging){
         await bot.testChallenge().then(() => console.log("TESTING CHALLENGE"));
     } else {
         await bot.visitInstagram().then(() => console.log("BROWSING INSTAGRAM"));
-    };
+    };*/
 
     console.log();
+    //await bot.outlookEmail();
+    await bot.createAccount();
 
-    await bot.visitPage("rubataga.gif");
+    //await bot.visitPage("khs_teaa");
 
-    await bot._goSickoMode("profile_base");
+    //await bot._commentPosts();
 
     const doneBrowsing = Date();
     console.log();
-    console.log(`STARTED BROWSING - ${startBrowsing} / STOPPED BROWSING - ${doneBrowsing}`);
-    setInterval(profileLike, config.settings.run_every_x_hours * 3600000, VISITINSTA, "profile_base");
+    //console.log(`STARTED BROWSING - ${startBrowsing} / STOPPED BROWSING - ${doneBrowsing}`);
+    //setInterval(profileLike, config.settings.run_every_x_hours * 3600000, VISITINSTA, "profile_base");
 }
 
 //setInterval(profileLike, config.settings.run_every_x_hours * 600000, "rubataga.gif", "profile_base", bot);
@@ -52,23 +54,26 @@ const run = async () => {
 
     const DEBUGMODE = process.env.DEBUGMODE ? process.env.DEBUGMODE : config.settings.debug_mode;
 
-    var debugging = DEBUGMODE == "true";
-    if(debugging){
+    //await bot.createAccount();
+
+    //await bot.tenMinMail();
+    //var debugging = DEBUGMODE == "true";
+    /*if(debugging){
         await bot.testChallenge().then(() => console.log("TESTING CHALLENGE"));
     } else {
     await bot.visitInstagram().then(() => console.log("BROWSING INSTAGRAM"));
-    };
+    };*/
 
-    await bot.visitPage("rubataga.gif");
+    //await bot.visitPage("rubataga.gif");
     //await bot.visitHashtagUrl().then(() => console.log("VISITED HASH-TAG URL"));
 
-    await bot._goSickoMode("profile_base");
+    //await bot._goSickoMode("profile_base");
     //await bot.unFollowUsers();
 
     //await bot.closeBrowser()
     //    .then(() => console.log("BROWSER CLOSED"))
     //    .catch(() => console.log("BROWSER FAILED TO CLOSE"));
-    setInterval(profileLike, config.settings.run_every_x_hours * 3600000, "rubataga.gif", "profile_base");
+    //setInterval(profileLike, config.settings.run_every_x_hours * 3600000, "rubataga.gif", "profile_base");
     //const endTime = Date();
 
     //console.log(`START TIME - ${startTime} / END TIME - ${endTime}`)
