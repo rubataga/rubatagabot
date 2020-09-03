@@ -187,7 +187,6 @@ const codes = await smsVerifier.getAuthCodes({ number, service: 'google' })
         await page.keyboard.press('Enter');
         await page.waitForNavigation();
         await page.waitFor(500);
-        console.log(page.frames());
     }
 
 
@@ -286,9 +285,10 @@ const codes = await smsVerifier.getAuthCodes({ number, service: 'google' })
     }*/
     
     async visitPage(pagename) {
-        await this.page.goto(`https://www.instagram.com/` + pagename + `/`);
+        let page = this.instaPage;
+        await page.goto(`https://www.instagram.com/` + pagename + `/`);
         console.log(`VISITING [${pagename}]`);
-        await this.page.waitForNavigation;
+        await page.waitForNavigation;
         //await this._goSickoMode(this.config.selectors.profile_base_class, this.page)
     }
 
@@ -317,7 +317,7 @@ const codes = await smsVerifier.getAuthCodes({ number, service: 'google' })
     
      async commentPosts (){
         
-        let page = this.page;
+        let page = this.instaPage;
         let baseClass = this.config.selectors.profile_base;
         const shuffle = require('shuffle-array');
 
@@ -376,34 +376,22 @@ const codes = await smsVerifier.getAuthCodes({ number, service: 'google' })
                 //     console.log(`{${postID}} :: LIKED`);
                 //     await page.waitFor(10000 + Math.floor(Math.random() * 5000));// wait for random amount of time.
                 // };
-                
-                let hasCommented = null;
-                await this.firebase_db.hasCommented(postID).then(data => hasCommented = data)
-                    .catch(() => hasCommented = false);
 
-                if (!hasCommented) { 
-                    let comments = shuffle(this.config.comments);
+                let comments = shuffle(this.config.comments);
                     // loop through available commments
+                await page.waitForSelector(this.config.selectors.post_like_button, {timeout : 0});
+                await page.click(this.config.selectors.post_comment_button);//click the comment button
+                await page.waitFor(2500);
+                for (let commentIndex = 0; commentIndex < (this.config.settings.comments_per_post - 1); commentIndex++) {
                     await page.waitForSelector(this.config.selectors.post_like_button, {timeout : 0});
-                        await page.click(this.config.selectors.post_comment_button);//click the comment button
-                        await page.keyboard.type("#josephmccarthysucc", {delay: 40}); //type some stuff
-                        await page.waitFor(1000);
-                        await page.keyboard.press('Enter');
-                        await page.waitFor(2500);
-                    for (let commentIndex = 0; commentIndex < (this.config.settings.comments_per_post - 1); commentIndex++) {
-                        await page.waitForSelector(this.config.selectors.post_like_button, {timeout : 0});
-                        await page.click(this.config.selectors.post_comment_button);//click the comment button
-                        await page.keyboard.type(comments[commentIndex], {delay: 40}); //type some stuff
-                        await page.waitFor(1000);
-                        await page.keyboard.press('Enter');
-                        await page.waitFor(2500);
-                    }
-                    console.log(`{${postID}} :: COMMENTED ${this.config.settings.comments_per_post} TIMES`);
-                    await this.firebase_db.addCommented(postID);
-                    console.log(`{${postID}} :: ADDED TO DATABASE`)
-                } else {
-                    console.log(`{${postID}} :: ALREADY COMMENTED`);
+                    await page.click(this.config.selectors.post_comment_button);//click the comment button
+                    await page.keyboard.type(comments[commentIndex], {delay: 40}); //type some stuff
+                    await page.waitFor(1000);
+                    await page.keyboard.press('Enter');
+                    await page.waitFor(2500);
                 }
+                console.log(`{${postID}} :: COMMENTED ${this.config.settings.comments_per_post} TIMES`);
+
 
                 //Closing the current post modal
                 await page.waitForSelector(this.config.selectors.post_close_button, {timeout : 0});

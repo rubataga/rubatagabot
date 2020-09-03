@@ -21,15 +21,25 @@ async function start() {
 
     console.log();
     //await bot.outlookEmail();
-    await bot.createAccount();
+    console.log("Creating account...");
+    console.log();
+    //await bot.createAccount();
 
-    //await bot.visitPage("khs_teaa");
+    console.log("Going to khs_teaa...");
+    console.log();
+    await bot.visitPage("khs_teaa");
+    
+    console.log("Commenting...");
+    console.log();
+    await bot.commentPosts();
 
-    //await bot._commentPosts();
+    console.log("Closing browser...");
+    console.log();
+    await bot.closeBrowser;
 
     const doneBrowsing = Date();
     console.log();
-    //console.log(`STARTED BROWSING - ${startBrowsing} / STOPPED BROWSING - ${doneBrowsing}`);
+    console.log(`STARTED BROWSING - ${startBrowsing} / STOPPED BROWSING - ${doneBrowsing}`);
     //setInterval(profileLike, config.settings.run_every_x_hours * 3600000, VISITINSTA, "profile_base");
 }
 
