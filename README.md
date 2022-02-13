@@ -34,6 +34,3 @@ Like I mentioned before, a great deal of this bot would not have been possible w
 ~ I added the ability to target profiles and like the posts on those rather than just hashtag feeds.
 
 As I continue on with this bot, my ambition is to give it DM command functionality (that is, send a certain DM message to the bot account, and it will respond accordingly). 
-
-
-🤓bruh
