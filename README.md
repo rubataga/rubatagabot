@@ -1,4 +1,4 @@
-**Ok so basically this is rubatagabot.**
+**This is rubatagabot.**
 
 Big thanks to Balogun Wahab (https://medium.com/@03balogun) for the code for the initial bot. Here's the link to the article which goes over everything: https://medium.com/@03balogun/building-an-instagram-bot-using-nodejs-puppeteer-and-firebase-28ebb93784d6
 
